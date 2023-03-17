@@ -52,6 +52,8 @@ describe('home page test', () => {
     cy.url().should('include', '/home')
     cy.get('h1').should('have.text', 'Home')
 
+    cy.get('.mr-1').should('have.text', 'Date Modified:')
+    cy.get('time').should('have.text', '2023-03-13')
     cy.contains('Social media').should('have.attr', 'data-cy', 'social-media-link')
     cy.contains('Mobile applications').should('have.text', 'Mobile applications')
     cy.contains('About Canada.ca').should('have.text', 'About Canada.ca')
