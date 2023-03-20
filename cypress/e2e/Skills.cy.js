@@ -2,7 +2,7 @@
 
 it('Skills Search' , () => { 
     
-    cy.visit ('https://www.canada.ca/en/services/jobs/training.html')
+    cy.visit ('https://www.canada.ca/en/services/jobs/training.html', { timeout: 20000 })
     /*cy.get(':nth-child(3) > .h5 > a').click()
     cy.get('.col-md-8 > .row > :nth-child(1)').click()
     cy.get(':nth-child(1) > .h5 > a').click()
