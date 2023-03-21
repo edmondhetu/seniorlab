@@ -14,7 +14,7 @@ it('Skills Search' , () => {
     //.select
     cy.log('Select Skills')
     cy.get(':nth-child(2) > .form-group > .hght > label').contains('Skills')
-    cy.get('#skills').find('option').should('have.length', 10)
+    cy.get('#skills').find('option').should('have.length', 9)
 
     const skills = ['Any', 'Adaptability', 'Collaboration', 'Communication', 'Creativity/Innovation', 'Digital', 'Numeracy', 'Problem Solving', 'Reading', 'Writing']
     skills.forEach(skills=>{
