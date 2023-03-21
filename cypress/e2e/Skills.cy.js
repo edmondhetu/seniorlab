@@ -2,7 +2,7 @@
 
 it('Skills Search' , () => { 
     
-    cy.visit ('https://www.canada.ca')
+    cy.visit ('https://www.salesforce.com/ca/')
     /*cy.visit ('https://www.canada.ca/en/services/jobs/training.html')
     cy.get(':nth-child(3) > .h5 > a').click()
     cy.get('.col-md-8 > .row > :nth-child(1)').click()
