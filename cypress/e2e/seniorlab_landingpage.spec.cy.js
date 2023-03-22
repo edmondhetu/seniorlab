@@ -1,84 +1,53 @@
-let baseUrl = 'https://seniors-journey-test.dev-dp.dts-stn.com/'
+let baseUrl = 'https://seniors-journey-dev.dev-dp.dts-stn.com/'
 
-describe('landing page test', () => {
+describe('test id 133 - verify Button/Links - Landing page top section', () => {
   beforeEach(() => {
     cy.visit(baseUrl)
   })
-  it('verify text and links are returning 200 status', () => {
-    cy.url().should('include', 'https://seniors-journey-test.dev')
-
-    cy.contains('Government of Canada')
-
-    cy.get('#english-button').contains('English')
-    cy.get('#french-button').contains('Français')
-    cy.contains('Terms & conditions')
-    cy.contains('Avis')
-
-    cy.request({ url: 'https://seniors-journey-test.dev-dp.dts-stn.com/en' })
-      .then((response) => {
-        expect(response.status).to.eq(200)
-      })
-    cy.request({ url: 'https://seniors-journey-test.dev-dp.dts-stn.com/fr' })
-      .then((response) => {
-        expect(response.status).to.eq(200)
-      })
-    cy.request({ url: 'https://www.canada.ca/en/transparency/terms.html' })
-      .then((response) => {
-        expect(response.status).to.eq(200)
-      })
-    cy.request({ url: 'https://www.canada.ca/fr/transparence/avis.html' })
-      .then((response) => {
-        expect(response.status).to.eq(200)
-      })
-  })
-
-  it('verify clicking english brings user to selected language on home page', () => {
+  it('language link', () => {
     cy.get('#english-button').click()
-    cy.url().should('include', 'en/home')
+    cy.get('[data-cy="toggle-language-link"]').click()
     cy.get('h1').should('have.text', 'Home')
+
+    cy.get('[data-cy="toggle-language-link"]').click()
+    cy.get('h1').should('have.text', 'Acceuil')
   })
 
-  it('verify clicking french brings user to selected language on home page', () => {
-    cy.get('#french-button').click()
-    cy.url().should('include', 'fr/home')
-    cy.get('h1').should('have.text', 'Acceuil')
+  it('checklist button', () => {
+    cy.get('#english-button').click()
+    cy.get('.space-x-3 > :nth-child(1)').should('have.text', 'Checklist')
+  })
+
+  it('mynotes button', () => {
+    cy.get('#english-button').click()
+    cy.get('.space-x-3 > :nth-child(2)').should('have.text', 'My Notes')
+  })
+
+  it('take the quiz link', () => {
+    cy.get('#english-button').click()
+    cy.contains('Take the quiz now!')
   })
 })
 
-describe('home page test', () => {
-  it('verify text and links are links are returning 200 status', () => {
+describe('test id 157 - verify Supporting Seniors - Landing page ', () => {
+  beforeEach(() => {
     cy.visit(baseUrl)
+  })
+  it('family and friends link and paragraph content', () => {
     cy.get('#english-button').click()
-    cy.url().should('include', '/home')
-    cy.get('h1').should('have.text', 'Home')
+    cy.get('.grid > :nth-child(1) > a').should('have.text', 'Family and Friends')
+    cy.get(':nth-child(1) > p').should('have.text', 'Learn how you can help your loved ones enter the retirement stage in their life.')
+  })
 
-    cy.get('.mr-1').should('have.text', 'Date Modified:')
-    cy.get('time').should('have.text', '2023-03-13')
-    cy.contains('Social media').should('have.attr', 'data-cy', 'social-media-link')
-    cy.contains('Mobile applications').should('have.text', 'Mobile applications')
-    cy.contains('About Canada.ca').should('have.text', 'About Canada.ca')
-    cy.contains('Terms and conditions').should('have.text', 'Terms and conditions')
-    cy.contains('Privacy').should('have.text', 'Privacy')
+  it('representatives and paragraph content', () => {
+    cy.get('#english-button').click()
+    cy.get('.grid > :nth-child(2) > a').should('have.text', 'Representatives')
+    cy.get(':nth-child(2) > p').should('have.text', "Find resources to understand and navigate Canada's pension system.")
+  })
 
-    cy.request({ url: 'https://www.canada.ca/en/social.html' })
-      .then((response) => {
-        expect(response.status).to.eq(200)
-      })
-    cy.request({ url: 'https://www.canada.ca/en/mobile.html' })
-      .then((response) => {
-        expect(response.status).to.eq(200)
-      })
-    cy.request({ url: 'https://www.canada.ca/en/government/about.html' })
-      .then((response) => {
-        expect(response.status).to.eq(200)
-      })
-    cy.request({ url: 'https://www.canada.ca/en/transparency/terms.html' })
-      .then((response) => {
-        expect(response.status).to.eq(200)
-      })
-    cy.request({ url: 'https://www.canada.ca/en/transparency/privacy.html' })
-      .then((response) => {
-        expect(response.status).to.eq(200)
-      })
+  it('organization and paragraph content', () => {
+    cy.get('#english-button').click()
+    cy.get('.grid > :nth-child(3) > a').should('have.text', 'Organizations')
+    cy.get('.grid > :nth-child(3) > p').should('have.text', 'Learn how best to help and navigate clients as they plan for retirement.')
   })
 })
