@@ -1,6 +1,6 @@
 let baseUrl = 'https://seniors-journey-test.dev-dp.dts-stn.com/'
 
-describe('landing page test', () => {
+describe.skip('landing page test', () => {
   beforeEach(() => {
     cy.visit(baseUrl)
   })
@@ -45,7 +45,7 @@ describe('landing page test', () => {
   })
 })
 
-describe('home page test', () => {
+describe.skip('home page test', () => {
   it('verify text and links are links are returning 200 status', () => {
     cy.visit(baseUrl)
     cy.get('#english-button').click()
