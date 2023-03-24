@@ -1,5 +1,3 @@
-const cypressConfig = require("../../cypress.config")
-
 describe('test id 157 - verify Supporting Seniors - Landing page ', () => {
   beforeEach(() => {
     let url = Cypress.config().baseUrl
