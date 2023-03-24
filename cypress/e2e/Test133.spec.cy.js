@@ -1,8 +1,9 @@
-let baseUrl = 'https://seniors-journey-dev.dev-dp.dts-stn.com/'
+const cypressConfig = require("../../cypress.config")
 
 describe('test id 133 - verify Button/Links - Landing page top section', () => {
   beforeEach(() => {
-    cy.visit(baseUrl)
+    let url = cypressConfig.baseUrl
+    cy.visit(url)
   })
   it('language link', () => {
     cy.get('#english-button').click()
