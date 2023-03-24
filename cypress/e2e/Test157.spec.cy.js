@@ -1,8 +1,7 @@
-let baseUrl = 'https://seniors-journey-dev.dev-dp.dts-stn.com/'
-
 describe('test id 157 - verify Supporting Seniors - Landing page ', () => {
   beforeEach(() => {
-    cy.visit(baseUrl)
+    let url = Cypress.config().baseUrl
+    cy.visit(url)
   })
   it('family and friends link and paragraph content', () => {
     cy.get('#english-button').click()
