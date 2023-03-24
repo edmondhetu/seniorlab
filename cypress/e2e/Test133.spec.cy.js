@@ -2,7 +2,7 @@ const cypressConfig = require("../../cypress.config")
 
 describe('test id 133 - verify Button/Links - Landing page top section', () => {
   beforeEach(() => {
-    let url = cypressConfig.baseUrl
+    let url = Cypress.config().baseUrl
     cy.visit(url)
   })
   it('language link', () => {
