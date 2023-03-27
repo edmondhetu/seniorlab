@@ -1,7 +1,6 @@
 describe('test id 157 - verify Supporting Seniors - Landing page ', () => {
   beforeEach(() => {
-    let url = Cypress.config().baseUrl
-    cy.visit(url)
+    cy.visit('/')
   })
   it('family and friends link and paragraph content', () => {
     cy.get('#english-button').click()
