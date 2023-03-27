@@ -5,7 +5,7 @@ describe('test id 157 - verify Supporting Seniors - Landing page ', () => {
   it('family and friends link and paragraph content', () => {
     cy.get('#english-button').click()
     cy.get('.grid > :nth-child(1) > a').should('have.text', 'Family and Friends')
-    cy.get(':nth-child(1) > p').should('have.text', 'Learn how you can help your loved ones enter the retirement stage in their life.')
+    cy.get('.grid > :nth-child(1) > p').should('have.text', 'Learn how you can help your loved ones enter the retirement stage in their life.')
   })
 
   it('representatives and paragraph content', () => {
