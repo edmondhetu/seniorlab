@@ -3,7 +3,7 @@ module.exports = {
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    baseUrl: 'https://seniors-journey-dev.dev-dp.dts-stn.com',
+    baseUrl: 'https://seniors-journey-test.dev-dp.dts-stn.com/',
     language: 'French'
   },
 };
