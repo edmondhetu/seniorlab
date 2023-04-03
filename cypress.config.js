@@ -1,5 +1,5 @@
 // load environment variables from .env file
-require('dotenv').config()
+//require('dotenv').config()
 
 module.exports = {
   e2e: {
