@@ -1,11 +1,17 @@
 var sizes = ["iphone-3", "iphone-6", "ipad-mini", "macbook-13", "macbook-11", "macbook-16"]
 import { utility } from "../support/Utility"
 
-describe.only('test id 207 - Navigation with resolutions', () => {
+describe('test id 207 - Navigation with resolutions', () => {
     context(`${sizes[0]} screen`, () => {
         beforeEach(() => {
             cy.visit('/')
             cy.viewport(sizes[0])
+        })
+
+        it('Top learning title not visible', () => {
+            cy.get('#english-button').click()
+            let language = new utility().getLanguageMobileScreen()
+            cy.get(':nth-child(1) > .max-h-0 > :nth-child(1) > .flex-col > .pt-5 > .h3').should('not.visible', language ? 'Top Learning Links' : 'Top Learning Links (FR)')
         })
 
         it('Government Benefits link title and paragraph content', () => {
@@ -45,6 +51,12 @@ describe.only('test id 207 - Navigation with resolutions', () => {
             cy.viewport(sizes[1])
         })
 
+        it('Top learning title not visible', () => {
+            cy.get('#english-button').click()
+            let language = new utility().getLanguageMobileScreen()
+            cy.get(':nth-child(1) > .max-h-0 > :nth-child(1) > .flex-col > .pt-5 > .h3').should('not.visible', language ? 'Top Learning Links' : 'Top Learning Links (FR)')
+        })
+
         it('Government Benefits link title and paragraph content', () => {
             cy.get('#english-button').click()
             let language = new utility().getLanguageMobileScreen()
@@ -80,6 +92,12 @@ describe.only('test id 207 - Navigation with resolutions', () => {
         beforeEach(() => {
             cy.visit('/')
             cy.viewport(sizes[2])
+        })
+
+        it('Top learning title is visible', () => {
+            cy.get('#english-button').click()
+            let language = new utility().getLanguageTabletOrMonitorScreen()
+            cy.get(':nth-child(1) > .max-h-0 > :nth-child(1) > .flex-col > .pt-5 > .h3').should('is.visible', language ? 'Top Learning Links' : 'Top Learning Links (FR)')
         })
 
         it('Government Benefits link title and paragraph content', () => {
@@ -119,6 +137,12 @@ describe.only('test id 207 - Navigation with resolutions', () => {
             cy.viewport(sizes[3])
         })
 
+        it('Top learning title is visible', () => {
+            cy.get('#english-button').click()
+            let language = new utility().getLanguageTabletOrMonitorScreen()
+            cy.get(':nth-child(1) > .max-h-0 > :nth-child(1) > .flex-col > .pt-5 > .h3').should('be.visible', language ? 'Top Learning Links' : 'Top Learning Links (FR)')
+        })
+
         it('Government Benefits link title and paragraph content', () => {
             cy.get('#english-button').click()
             let language = new utility().getLanguageTabletOrMonitorScreen()
@@ -156,6 +180,12 @@ describe.only('test id 207 - Navigation with resolutions', () => {
             cy.viewport(sizes[4])
         })
 
+        it('Top learning title is visible', () => {
+            cy.get('#english-button').click()
+            let language = new utility().getLanguageTabletOrMonitorScreen()
+            cy.get(':nth-child(1) > .max-h-0 > :nth-child(1) > .flex-col > .pt-5 > .h3').should('be.visible', language ? 'Top Learning Links' : 'Top Learning Links (FR)')
+        })
+
         it('Government Benefits link title and paragraph content', () => {
             cy.get('#english-button').click()
             let language = new utility().getLanguageTabletOrMonitorScreen()
@@ -191,6 +221,12 @@ describe.only('test id 207 - Navigation with resolutions', () => {
         beforeEach(() => {
             cy.visit('/')
             cy.viewport(sizes[5])
+        })
+
+        it('Top learning title is visible', () => {
+            cy.get('#english-button').click()
+            let language = new utility().getLanguageTabletOrMonitorScreen()
+            cy.get(':nth-child(1) > .max-h-0 > :nth-child(1) > .flex-col > .pt-5 > .h3').should('be.visible', language ? 'Top Learning Links' : 'Top Learning Links (FR)')
         })
 
         it('Government Benefits link title and paragraph content', () => {
