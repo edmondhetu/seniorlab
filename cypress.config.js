@@ -7,6 +7,13 @@ module.exports = {
       // implement node event listeners here
     },
     baseUrl: 'https://seniors-journey-test.dev-dp.dts-stn.com/',
-    language: 'French'
+    language: 'French',
+    env: {
+      oauthClientId: process.env.OAUTH_CLIENT_ID,
+      oauthClientSecret: process.env.OAUTH_CLIENT_SECRET,
+      oauthEnabled: process.env.OAUTH_ENABLED === 'true',
+      oauthScope: process.env.OAUTH_SCOPE,
+      oauthTokenUrl: process.env.OAUTH_TOKEN_URL,
+    },
   },
 };
