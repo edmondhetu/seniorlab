@@ -66,7 +66,7 @@ describe('test id 207 - Navigation with resolutions', () => {
             cy.wait(2000)
             cy.get(':nth-child(1) > .rounded > .flex').click()
             cy.get('.max-h-full > :nth-child(1) > .flex-col > .pt-5 > .py-2 > :nth-child(2) > .py-3 > .h4').click()
-            cy.location('pathname').should('equal', language ? '/en/test' : '/fr/test2-fr')
+            cy.location('pathname').should('equal', language ? '/en/test2' : '/fr/test2-fr')
         })
 
         it('Financial Support link click url redirects to /en/fr/ when accessing /en/fr', () => {
@@ -75,7 +75,7 @@ describe('test id 207 - Navigation with resolutions', () => {
             cy.wait(2000)
             cy.get(':nth-child(1) > .rounded > .flex').click()
             cy.get('.max-h-full > :nth-child(1) > .flex-col > .pt-5 > .py-2 > :nth-child(3) > .py-3 > .h4').click()
-            cy.location('pathname').should('equal', language ? '/en/test' : '/fr/test3-fr')
+            cy.location('pathname').should('equal', language ? '/en/test3' : '/fr/test3-fr')
         })
     })
 
@@ -143,7 +143,7 @@ describe('test id 207 - Navigation with resolutions', () => {
             cy.wait(2000)
             cy.get(':nth-child(1) > .rounded > .flex').click()
             cy.get('.max-h-full > :nth-child(1) > .flex-col > .pt-5 > .py-2 > :nth-child(2) > .py-3 > .h4').click()
-            cy.location('pathname').should('equal', language ? '/en/test' : '/fr/test2-fr')
+            cy.location('pathname').should('equal', language ? '/en/test2' : '/fr/test2-fr')
         })
 
         it('Financial Support link click url redirects to /en/fr/ when accessing /en/fr', () => {
@@ -152,7 +152,7 @@ describe('test id 207 - Navigation with resolutions', () => {
             cy.wait(2000)
             cy.get(':nth-child(1) > .rounded > .flex').click()
             cy.get('.max-h-full > :nth-child(1) > .flex-col > .pt-5 > .py-2 > :nth-child(3) > .py-3 > .h4').click()
-            cy.location('pathname').should('equal', language ? '/en/test' : '/fr/test3-fr')
+            cy.location('pathname').should('equal', language ? '/en/test3' : '/fr/test3-fr')
         })
     })
 
@@ -218,7 +218,7 @@ describe('test id 207 - Navigation with resolutions', () => {
             let language = new utility().getLanguageTabletOrMonitorScreen()
             cy.wait(2000)
             cy.get(':nth-child(1) > .max-h-0 > :nth-child(1) > .flex-col > .pt-5 > .py-2 > :nth-child(2) > .py-3 > .h4').click()
-            cy.location('pathname').should('equal', language ? '/en/test' : '/fr/test2-fr')
+            cy.location('pathname').should('equal', language ? '/en/test2' : '/fr/test2-fr')
         })
 
         it('Financial Support link click url redirects to /en/fr/ when accessing /en/fr', () => {
@@ -226,7 +226,7 @@ describe('test id 207 - Navigation with resolutions', () => {
             let language = new utility().getLanguageTabletOrMonitorScreen()
             cy.wait(2000)
             cy.get(':nth-child(1) > .max-h-0 > :nth-child(1) > .flex-col > .pt-5 > .py-2 > :nth-child(3) > .py-3 > .h4').click()
-            cy.location('pathname').should('equal', language ? '/en/test' : '/fr/test3-fr')
+            cy.location('pathname').should('equal', language ? '/en/test3' : '/fr/test3-fr')
         })
     })
 
@@ -292,7 +292,7 @@ describe('test id 207 - Navigation with resolutions', () => {
             let language = new utility().getLanguageTabletOrMonitorScreen()
             cy.wait(2000)
             cy.get(':nth-child(1) > .max-h-0 > :nth-child(1) > .flex-col > .pt-5 > .py-2 > :nth-child(2) > .py-3 > .h4').click()
-            cy.location('pathname').should('equal', language ? '/en/test' : '/fr/test2-fr')
+            cy.location('pathname').should('equal', language ? '/en/test2' : '/fr/test2-fr')
         })
 
         it('Financial Support link click url redirects to /en/fr/ when accessing /en/fr', () => {
@@ -300,7 +300,7 @@ describe('test id 207 - Navigation with resolutions', () => {
             let language = new utility().getLanguageTabletOrMonitorScreen()
             cy.wait(2000)
             cy.get(':nth-child(1) > .max-h-0 > :nth-child(1) > .flex-col > .pt-5 > .py-2 > :nth-child(3) > .py-3 > .h4').click()
-            cy.location('pathname').should('equal', language ? '/en/test' : '/fr/test3-fr')
+            cy.location('pathname').should('equal', language ? '/en/test3' : '/fr/test3-fr')
         })
     })
 
@@ -366,7 +366,7 @@ describe('test id 207 - Navigation with resolutions', () => {
             let language = new utility().getLanguageTabletOrMonitorScreen()
             cy.wait(2000)
             cy.get(':nth-child(1) > .max-h-0 > :nth-child(1) > .flex-col > .pt-5 > .py-2 > :nth-child(2) > .py-3 > .h4').click()
-            cy.location('pathname').should('equal', language ? '/en/test' : '/fr/test2-fr')
+            cy.location('pathname').should('equal', language ? '/en/test2' : '/fr/test2-fr')
         })
 
         it('Financial Support link click url redirects to /en/fr/ when accessing /en/fr', () => {
@@ -374,7 +374,7 @@ describe('test id 207 - Navigation with resolutions', () => {
             let language = new utility().getLanguageTabletOrMonitorScreen()
             cy.wait(2000)
             cy.get(':nth-child(1) > .max-h-0 > :nth-child(1) > .flex-col > .pt-5 > .py-2 > :nth-child(3) > .py-3 > .h4').click()
-            cy.location('pathname').should('equal', language ? '/en/test' : '/fr/test3-fr')
+            cy.location('pathname').should('equal', language ? '/en/test3' : '/fr/test3-fr')
         })
     })
 
@@ -440,7 +440,7 @@ describe('test id 207 - Navigation with resolutions', () => {
             let language = new utility().getLanguageTabletOrMonitorScreen()
             cy.wait(2000)
             cy.get(':nth-child(1) > .max-h-0 > :nth-child(1) > .flex-col > .pt-5 > .py-2 > :nth-child(2) > .py-3 > .h4').click()
-            cy.location('pathname').should('equal', language ? '/en/test' : '/fr/test2-fr')
+            cy.location('pathname').should('equal', language ? '/en/test2' : '/fr/test2-fr')
         })
 
         it('Financial Support link click url redirects to /en/fr/ when accessing /en/fr', () => {
@@ -448,7 +448,7 @@ describe('test id 207 - Navigation with resolutions', () => {
             let language = new utility().getLanguageTabletOrMonitorScreen()
             cy.wait(2000)
             cy.get(':nth-child(1) > .max-h-0 > :nth-child(1) > .flex-col > .pt-5 > .py-2 > :nth-child(3) > .py-3 > .h4').click()
-            cy.location('pathname').should('equal', language ? '/en/test' : '/fr/test3-fr')
+            cy.location('pathname').should('equal', language ? '/en/test3' : '/fr/test3-fr')
         })
     })
 })
