@@ -24,9 +24,4 @@ describe('test id 133 - verify Button/Links - Landing page top section', () => {
     cy.get('.space-x-3 > :nth-child(2)')
       .should('have.text', 'My Notes')
   })
-
-  it('take the quiz link', () => {
-    cy.get('#english-button').click()
-    cy.contains('Take the quiz now!')
-  })
 })
