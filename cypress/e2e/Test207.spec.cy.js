@@ -10,7 +10,7 @@ describe('test id 207 - Navigation with resolutions', () => {
 
         it('Top learning title not visible', () => {
             cy.get('#english-button').click()
-            let language = new utility().getLanguageMobileScreen()
+            let language = new utility().getLanguage()
             cy.get(':nth-child(1) > .max-h-0 > :nth-child(1) > .flex-col > .pt-5 > .h3')
                 .should('not.visible', language ? 'Top Learning Links' : 'Top Learning Links (FR)')
         })
