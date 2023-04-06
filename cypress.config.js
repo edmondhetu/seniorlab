@@ -1,12 +1,12 @@
 // load environment variables from .env file
-//require('dotenv').config()
+require('dotenv').config()
 
 module.exports = {
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    baseUrl: 'https://seniors-journey-test.dev-dp.dts-stn.com/',
+    baseUrl: 'https://seniors-journey-dev.dev-dp.dts-stn.com/',
     language: 'English',
     env: {
       oauthClientId: process.env.OAUTH_CLIENT_ID,
