@@ -1,7 +1,7 @@
 {
   "name": "cypressautomation",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is testing for the senior journey lab project.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,7 +13,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^12.8.1",
+    "cypress": "^12.9.0",
     "dotenv": "^16.0.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edmondhetu/seniorlab.git"
+  },
+  "bugs": {
+    "url": "https://github.com/edmondhetu/seniorlab/issues"
+  },
+  "homepage": "https://github.com/edmondhetu/seniorlab#readme"
 }
