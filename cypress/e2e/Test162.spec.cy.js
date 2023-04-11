@@ -1,6 +1,6 @@
 import { utility } from "../support/Utility"
 
-describe.only('test id 162 - verify Learn overview - Top section - Learn page', () => {
+describe('test id 162 - verify Learn overview - Top section - Learn page', () => {
   beforeEach(() => {
     cy.visit('/')
   })
