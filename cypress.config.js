@@ -15,5 +15,6 @@ module.exports = {
       oauthScope: process.env.OAUTH_SCOPE,
       oauthTokenUrl: process.env.OAUTH_TOKEN_URL,
     },
+    userAgent: 'cypress/12.x'
   },
 };
