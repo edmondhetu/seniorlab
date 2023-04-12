@@ -1,4 +1,4 @@
-import { utility } from "../support/Utility"
+import { utility } from "../../support/Utility"
 
 describe('test id 220 - verify Plan link - Landing page', () => {
   beforeEach(() => {

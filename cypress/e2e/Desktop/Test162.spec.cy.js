@@ -1,4 +1,4 @@
-import { utility } from "../support/Utility"
+import { utility } from "../../support/Utility"
 
 describe('test id 162 - verify Learn overview - Top section - Learn page', () => {
   beforeEach(() => {

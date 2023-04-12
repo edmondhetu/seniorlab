@@ -1,5 +1,5 @@
 var sizes = ["iphone-3", "iphone-6", "ipad-mini", "macbook-13", "macbook-11", "macbook-16"]
-import { utility } from "../support/Utility"
+import { utility } from "../../support/Utility"
 
 describe('test id 213 - Navigation with resolutions', () => {
     context(`${sizes[0]} screen`, () => {
