@@ -2,7 +2,7 @@ import { utility } from "../support/Utility"
 
 describe('test id 162 - verify Learn overview - Top section - Learn page', () => {
   beforeEach(() => {
-    cy.visit('/')
+    cy.visit('/en/learn')
   })
   it('Learn overview - Top section - Learn page content', () => {
     //cy.get('#english-button').click()
