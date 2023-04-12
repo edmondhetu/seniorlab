@@ -4,7 +4,7 @@ describe('test id 155 - verify Learn link - Landing page', () => {
     })
     it('learn text', () => {
       cy.get('#english-button').click()
-      cy.get(':nth-child(1) > .max-h-0 > :nth-child(1) > .flex-col > .px-10 > .h1')
+      cy.get(':nth-child(1) > .max-h-0 > :nth-child(1) > .flex-col > .rounded > .no-underline > .h1')
         .should('have.text', 'Learn ')
     })
   
