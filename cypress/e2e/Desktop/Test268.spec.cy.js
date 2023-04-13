@@ -13,8 +13,9 @@ describe('test id 268 - verify Learn Overview - Breadcrumb', () => {
       if (language == "French") {
         cy.url().should('include', '/fr.html')
       }
-      else
+      else{
         cy.url().should('include', '/en.html')
+      }
     })
   })
 })
