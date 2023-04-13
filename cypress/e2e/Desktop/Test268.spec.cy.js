@@ -13,9 +13,11 @@ describe('test id 268 - verify Learn Overview - Breadcrumb', () => {
       if (language == "French") {
         cy.url().should('include', '/fr.html')
       }
-      else{
+      else {
         cy.url().should('include', '/en.html')
       }
+
+      cy.get('.well > .mrgn-tp-md').should('have.text', language ? 'The official website of the Government of Canada' : 'Le site officiel du gouvernement du Canada')
     })
   })
 })
