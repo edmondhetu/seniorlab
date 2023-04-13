@@ -1,12 +1,20 @@
+import { utility } from "../../support/Utility"
+
 describe('test id 268 - verify Learn Overview - Breadcrumb', () => {
-  it.only('canada link - verify link text and click url redirects', () => {
+  it.only('canada link - verify link text and click url redirects to /en/fr/ when accessing /en/fr', () => {
     cy.visit('/')
     cy.get('#english-button').click()
-    cy.get('.inline-block > .font-body').should('have.text', 'Canada.ca')
+    let language = new utility().getLanguageTabletOrMonitorScreen()
+    cy.get('.inline-block > .font-body').should('have.text', language ? 'Canada.ca' : 'Caada.ca')
     cy.wait(2000)
     cy.get('.inline-block > .font-body').click()
     cy.origin('https://www.canada.ca', () => {
-      cy.url().should('include', '/en.html')
+      let language = Cypress.config().language
+      if (language == "French") {
+        cy.url().should('include', '/fr.html')
+      }
+      else
+        cy.url().should('include', '/en.html')
     })
   })
 })
