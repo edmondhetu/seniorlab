@@ -12,12 +12,12 @@ describe('test id 268 - verify Learn Overview - Breadcrumb', () => {
       let language = Cypress.config().language
       if (language == "French") {
         cy.url().should('include', '/fr.html')
+        cy.get('.well > .mrgn-tp-md').should('have.text', 'Le site officiel du gouvernement du Canada')
       }
       else {
         cy.url().should('include', '/en.html')
+        cy.get('.well > .mrgn-tp-md').should('have.text', 'The official website of the Government of Canada')
       }
-
-      cy.get('.well > .mrgn-tp-md').should('have.text', language ? 'The official website of the Government of Canada' : 'Le site officiel du gouvernement du Canada')
     })
   })
 })
