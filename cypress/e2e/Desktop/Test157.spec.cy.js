@@ -8,7 +8,7 @@ describe('test id 157 - verify Supporting Seniors - Landing page ', () => {
     cy.get('#english-button').click()
     let language = new utility().getLanguageTabletOrMonitorScreen()
     cy.get('.grid > :nth-child(1) > a')
-      .should('have.text', 'Family and Friends')
+      .should('have.text', language ? 'Family and Friends' : 'Family and Friends')
     cy.get('.grid > :nth-child(1) > p')
       .should('have.text', language ? 'Learn how you can help your loved ones enter the retirement stage in their life.' : 'FR Learn how you can help your loved ones enter the retirement stage in their life.')
   })
