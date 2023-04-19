@@ -5,9 +5,9 @@ describe('test id 268 - verify Learn Overview - Breadcrumb', () => {
     cy.visit('/')
     cy.get('#english-button').click()
     let language = new utility().getLanguageTabletOrMonitorScreen()
-    cy.get('.inline-block > .font-body').should('have.text', language ? 'Canada.ca' : 'Canada.ca')
+    cy.contains('Canada.ca').should('have.text', language ? 'Canada.ca' : 'Canada.ca')
     cy.wait(2000)
-    cy.get('.inline-block > .font-body').click()
+    cy.contains('Canada.ca').click()
     cy.origin('https://www.canada.ca', () => {
       let language = Cypress.config().language
       if (language == "French") {
