@@ -11,7 +11,7 @@ describe('test id 214 - Supporting Seniors - Mobile', () => {
         it('Supporting Seniors content and is visible', () => {
             cy.get('#english-button').click()
             let language = new utility().getLanguageMobileScreen()
-            cy.get(':nth-child(3) > .h2')
+            cy.get('#mainContent > :nth-child(3)')
                 .should('have.text', language ? 'Supporting Seniors' : 'FR Supporting Seniors')
                 .and('be.visible')
         })
@@ -19,10 +19,10 @@ describe('test id 214 - Supporting Seniors - Mobile', () => {
         it('Friends and Family link title and paragraph content are visible', () => {
             cy.get('#english-button').click()
             let language = new utility().getLanguageMobileScreen()
-            cy.get('.grid > :nth-child(1) > a')
+            cy.get('[id=":Rllm:-title"]')
                 .should('have.text', language ? 'Family and Friends' : 'FR Family and Friends')
                 .and('be.visible')
-            cy.get(':nth-child(1) > p')
+            cy.get(':nth-child(1) > .MuiButtonBase-root > .MuiCardContent-root > .m-0')
                 .should('have.text', language ? 'Learn how you can help your loved ones enter the retirement stage in their life.' : 'FR Learn how you can help your loved ones enter the retirement stage in their life.')
                 .and('be.visible')
         })
