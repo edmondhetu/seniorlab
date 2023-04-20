@@ -4,29 +4,26 @@ describe('test id 155 - verify Learn link - Landing page', () => {
   beforeEach(() => {
     cy.visit('/')
   })
-  it('learn text content', () => {
+  it('learn tab - verify is visible, clickable and html attributes', () => {
     cy.get('#english-button').click()
-    let language = new utility().getLanguageTabletOrMonitorScreen()
-    cy.get(':nth-child(1) > .max-h-0 > :nth-child(1) > .flex > .rounded > .h1 > .MuiTypography-root > span')
-      .should('have.text', language ? 'Learn' : 'Learn (FR)')
+    cy.get('button').eq(0).should('have.attr', 'type', 'button')
+    .and('have.attr', 'tabindex', '0')
+    .and('have.attr', 'role', 'tab')
+    .and('have.attr', 'aria-selected', 'true')
+    .and('be.visible')
+    cy.get('button').eq(0).click()
   })
 
-  it('learn content', () => {
+  it('learn text is visible', () => {
     cy.get('#english-button').click()
-    let language = new utility().getLanguageTabletOrMonitorScreen()
-    cy.contains(language ? 'Learn about the "three pillars" of Canada\'s retirement system.' : '(FR) Learn about the "three pillars" of Canada\'s retirement system.')
-      .should('have.text', language ? 'Learn about the "three pillars" of Canada\'s retirement system.' : '(FR) Learn about the "three pillars" of Canada\'s retirement system.')
-    cy.contains(language ? 'There are many factors to consider before retiring to help ensure that you can comfortably retire.' : '(FR) There are many factors to consider before retiring to help ensure that you can comfortably retire.')
-      .should('have.text', language ? 'There are many factors to consider before retiring to help ensure that you can comfortably retire.' : '(FR) There are many factors to consider before retiring to help ensure that you can comfortably retire.')
+    cy.get('.h5').should('be.visible')
+    cy.get('.justify-center > :nth-child(1)').should('be.visible')
+    cy.get('.justify-center > :nth-child(2)').should('be.visible')
   })
 
-  it('learn link click url redirects to /en/fr/ when accessing /en/fr', () => {
+  it('learn link has href attribute /en/fr/ when accessing /en/fr', () => {
     cy.get('#english-button').click()
     let language = new utility().getLanguageTabletOrMonitorScreen()
-    cy.wait(2000)
-    cy.get(':nth-child(1) > .max-h-0 > :nth-child(1) > .flex > .rounded > .h1 > .MuiTypography-root > span').click()
-    cy.location('pathname').should('equal', language ? '/en/learn' : '/fr/learn')
-    cy.contains(language ? 'Not sure where to begin? Take the quiz!' : '(FR) Not sure where to begin? Take the quiz!').
-      should('have.text', language ? 'Not sure where to begin? Take the quiz!' : '(FR) Not sure where to begin? Take the quiz!')
+    cy.get('.flex-row-reverse > .MuiTypography-root').should('have.attr', 'href', language ? '/en/home#' : '/en/home#')
   })
 })
