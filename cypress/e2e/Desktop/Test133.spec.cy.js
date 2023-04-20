@@ -24,7 +24,8 @@ describe('test id 133 - verify Button/Links - Landing page top section', () => {
     cy.get('#english-button').click()
 
     let language = new utility().getLanguageTabletOrMonitorScreen()
-    cy.get('.space-x-3 > .text-white').should('have.attr', 'href', language ? '/en/home#' : '/fr/home#').and('be.visible')
+    cy.get('.space-x-3 > .text-white').should('have.attr', 'href', language ? '/en/home#' : '/fr/home#')
+      .and('be.visible')
     cy.get('.space-x-3 > .text-white').click()
     cy.location('pathname').should('equal', language ? '/en/home' : '/fr/home')
   })
