@@ -7,8 +7,6 @@ describe('test id 215 - Automate - Contact Us - Mobile', () => {
             cy.visit('/')
             cy.viewport(sizes[0])
         })
-            
-        
 
         it('Contact Us', () => {
             cy.get('#english-button').click()
@@ -18,12 +16,12 @@ describe('test id 215 - Automate - Contact Us - Mobile', () => {
 
             cy.get('#mainContent > :nth-child(5)')
                 .should('have.text', language ? 'Contact Us' : '(FR)Contact Us')
-                .and('be.visible')               
-                    
+                .and('be.visible')
+
             cy.wait(2000)
             cy.get('#mainContent > :nth-child(6)')
-                .should('have.text', language ? 'Our call centres and Service Canada Centres operate Monday to Friday, from 8:30 a.m. to 4:00 p.m., your local time. They are closed on statuary holidays.' 
-                : '(FR)Our call centres and Service Canada Centres operate Monday to Friday, from 8:30 a.m. to 4:00 p.m., your local time. They are closed on statuary holidays.')
+                .should('have.text', language ? 'Our call centres and Service Canada Centres operate Monday to Friday, from 8:30 a.m. to 4:00 p.m., your local time. They are closed on statuary holidays.'
+                    : '(FR)Our call centres and Service Canada Centres operate Monday to Friday, from 8:30 a.m. to 4:00 p.m., your local time. They are closed on statuary holidays.')
                 .and('be.visible')
 
             cy.wait(2000)
@@ -39,29 +37,26 @@ describe('test id 215 - Automate - Contact Us - Mobile', () => {
             cy.wait(2000)
             cy.get('.mb-6 > :nth-child(4)')
                 .should('have.text', language ? 'Toll free: 1-800-000-000' : '(FR)Toll free: 1-800-000-000')
-                .and('be.visible')            
-                     
-            cy.contains(language ? 'Direct Number: 1-800-000-000' : '(FR)Direct Number: 1-800-000-000') 
-            
+                .and('be.visible')
+
+            cy.contains(language ? 'Direct Number: 1-800-000-000' : '(FR)Direct Number: 1-800-000-000')
+
             cy.wait(2000)
             cy.get(':nth-child(8) > .mb-2')
                 .should('have.text', language ? 'Find an office' : '(FR)Find an office')
                 .and('be.visible')
-                
+
             cy.wait(2000)
             cy.get(':nth-child(8) > .mt-3')
                 .should('have.text', language ? 'Find a Service Canada Centre near you using the link below.' : '(FR)Find a Service Canada Centre near you using the link below.')
                 .and('be.visible')
-                
+
             cy.wait(2000)
             cy.get(':nth-child(8) > .MuiTypography-root').click({ force: true })
                 .should('have.text', language ? 'Find a Service Canada Centre' : '(FR)Find a Service Canada Centre')
                 .and('be.visible')
-
-        })             
-             
+        })
     })
-
 })
 
 
