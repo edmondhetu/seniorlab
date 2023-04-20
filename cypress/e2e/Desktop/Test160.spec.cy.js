@@ -9,6 +9,6 @@ describe('testcase id 160 - Contact Us Link', () => {
             cy.get('[data-cy="toggle-language-link"]').click()
         }
         cy.wait(3000)
-        cy.get(':nth-child(4) > a.text-lg').click()
+        cy.get(':nth-child(9) > .MuiButtonBase-root').click()
     })
 })
