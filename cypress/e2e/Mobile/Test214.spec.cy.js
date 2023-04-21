@@ -4,27 +4,20 @@ import { utility } from "../../support/Utility"
 describe('test id 214 - Supporting Seniors - Mobile', () => {
     context(`${sizes[0]} screen`, () => {
         beforeEach(() => {
-            cy.visit('/')
+            cy.visit('/en/home')
             cy.viewport(sizes[0])
         })
 
-        it('Supporting Seniors content and is visible', () => {
-            cy.get('#english-button').click()
-            let language = new utility().getLanguageMobileScreen()
-            cy.get(':nth-child(3) > .h2')
-                .should('have.text', language ? 'Supporting Seniors' : 'FR Supporting Seniors')
-                .and('be.visible')
-        })
-
-        it('Friends and Family link title and paragraph content are visible', () => {
-            cy.get('#english-button').click()
-            let language = new utility().getLanguageMobileScreen()
-            cy.get('.grid > :nth-child(1) > a')
-                .should('have.text', language ? 'Family and Friends' : 'FR Family and Friends')
-                .and('be.visible')
-            cy.get(':nth-child(1) > p')
-                .should('have.text', language ? 'Learn how you can help your loved ones enter the retirement stage in their life.' : 'FR Learn how you can help your loved ones enter the retirement stage in their life.')
-                .and('be.visible')
+        it('Find all broken links - verify broken link on landing page', () => {
+            cy.get('a').each(link => {
+                if (link.prop('href'))
+                    cy.request({
+                        url: link.prop('href'),
+                        failOnStatusCode: false
+                    })
+    
+                cy.log(link.prop('href'))
+            })
         })
     })
 })

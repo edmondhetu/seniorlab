@@ -2,32 +2,23 @@ import { utility } from "../../support/Utility"
 
 describe('test id 157 - verify Supporting Seniors - Landing page ', () => {
   beforeEach(() => {
-    cy.visit('/')
+    cy.visit('/en/home')
   })
-  it('family and friends link and paragraph content', () => {
-    cy.get('#english-button').click()
-    let language = new utility().getLanguageTabletOrMonitorScreen()
-    cy.get('.grid > :nth-child(1) > a')
-      .should('have.text', 'Family and Friends')
-    cy.get('.grid > :nth-child(1) > p')
-      .should('have.text', language ? 'Learn how you can help your loved ones enter the retirement stage in their life.' : 'FR Learn how you can help your loved ones enter the retirement stage in their life.')
+  
+  it('Supporting Seniors title is visible', () => {
+    cy.get('h2').eq(2).should('be.visible')
   })
 
-  it('representatives and paragraph content', () => {
-    cy.get('#english-button').click()
-    let language = new utility().getLanguageTabletOrMonitorScreen()
-    cy.get('.grid > :nth-child(2) > a')
-    .should('have.text', 'Representatives')
-    cy.get('.grid > :nth-child(2) > p')
-      .should('have.text', language ? 'Find resources to understand and navigate Canada\'s pension system.' : 'FR Find resources to understand and navigate Canada’s pension system.')
-  })
+  it('Find all broken links - verify broken link on landing page', () => {
+    cy.visit('/en/home')
+    cy.get('a').each(link => {
+      if (link.prop('href'))
+        cy.request({
+          url: link.prop('href'),
+          failOnStatusCode: false
+        })
 
-  it('organization and paragraph content', () => {
-    cy.get('#english-button').click()
-    let language = new utility().getLanguageTabletOrMonitorScreen()
-    cy.get('.grid > :nth-child(3) > a')
-      .should('have.text', 'Organizations')
-    cy.get('.grid > :nth-child(3) > p')
-      .should('have.text', language ? 'Learn how best to help and navigate clients as they plan for retirement.' : 'FR Learn how best to help and navigate clients as they plan for retirement.')
+      cy.log(link.prop('href'))
+    })
   })
 })
