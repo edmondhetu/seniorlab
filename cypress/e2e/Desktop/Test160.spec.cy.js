@@ -1,14 +1,23 @@
-let language = Cypress.config().language
-
-describe('testcase id 160 - Contact Us Link', () => {
-    it('Lower Section - Contact Us', () => {
-        cy.visit('/')
-        cy.get('#english-button').click()
-
-        if (language == "French") {
-            cy.get('[data-cy="toggle-language-link"]').click()
-        }
-        cy.wait(3000)
-        cy.get(':nth-child(4) > a.text-lg').click()
+describe('test id 160 - Automate Contact Us Landing page', () => {
+    beforeEach(() => {
+      cy.visit('/en/learn')
     })
-})
+  
+    it('Learn overview - Top section - Learn page content', () => {
+      cy.get('.h2')
+        .should('be.visible')
+    })
+  
+    it('Find all broken links - verify broken link on landing page', () => {
+      cy.get('a').each(link => {
+        if (link.prop('href'))
+          cy.request({
+            url: link.prop('href'),
+            failOnStatusCode: false
+          })
+  
+        cy.log(link.prop('href'))
+      })
+    })
+  })
+

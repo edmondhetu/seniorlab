@@ -1,6 +1,6 @@
 import { utility } from "../../support/Utility"
 	
-	describe('test id 260 - Automate - Learn overview - Explore our content - Making Retirement decision', () => {
+	describe('test id 261 - Automate - Learn overview - Explore our ontent - Federal benefit scenarios from retirees to new pensioners', () => {
 	  beforeEach(() => {
 	    cy.visit('/en/learn')
 	  })
