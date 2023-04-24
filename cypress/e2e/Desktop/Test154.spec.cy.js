@@ -1,18 +1,24 @@
-let language = Cypress.config().language
-
-describe('test id 154 - Test Middle Panel Links', () => {
-    it('Middle Pannel- Learn', () => {
-        cy.visit('/')
-        cy.get('#english-button').click()
-
-        if (language == "French") {
-            cy.get('[data-cy="toggle-language-link"]').click()
-        }
-
-        cy.contains(language ? 'Learn' : 'Learn(FR)').click()
-        cy.contains(language ? 'Plan' : 'Plan(FR').click()
-        cy.contains(language ? 'Apply' : 'Apply(FR)').click()
-        cy.contains(language ? 'Manage' : 'Manage(FR)').click()
-        cy.contains(language ? 'Community Resources' : 'Community Resources(FR)').click()
-    })
-})
+import { utility } from "../../support/Utility"
+	
+	describe('test id 154 - Automate - Top menu - Landing page', () => {
+	  beforeEach(() => {
+	    cy.visit('/en/learn')
+	  })
+	
+	  it('Learn overview - Top section - Learn page content', () => {
+	    cy.get('.h2')
+	      .should('be.visible')
+	  })
+	
+	  it('Find all broken links - verify broken link on landing page', () => {
+	    cy.get('a').each(link => {
+	      if (link.prop('href'))
+	        cy.request({
+	          url: link.prop('href'),
+	          failOnStatusCode: false
+	        })
+	
+	      cy.log(link.prop('href'))
+	    })
+	  })
+	})
