@@ -2,7 +2,7 @@ describe('test id 268 - verify Learn Overview - Breadcrumb', () => {
   it('canada link - click url redirects to /en when accessing /en', () => {
     cy.visit('/en/home')
     cy.get('.block > :nth-child(1) > .MuiTypography-root').click()
-    cy.wait(2000)
+    cy.wait(3000)
     cy.origin('https://www.canada.ca', () => {
       cy.location('pathname').should('equal', '/en.html')
       cy.get('.well > .mrgn-tp-md').should('have.text', 'The official website of the Government of Canada')
@@ -12,7 +12,7 @@ describe('test id 268 - verify Learn Overview - Breadcrumb', () => {
   it('canada link - click url redirects to /fr when accessing /fr', () => {
     cy.visit('/fr/home')
     cy.get('.block > :nth-child(1) > .MuiTypography-root').click()
-    cy.wait(2000)
+    cy.wait(3000)
     cy.origin('https://www.canada.ca', () => {
       cy.location('pathname').should('equal', '/fr.html')
       cy.get('.well > .mrgn-tp-md').should('have.text', 'Le site officiel du gouvernement du Canada')
