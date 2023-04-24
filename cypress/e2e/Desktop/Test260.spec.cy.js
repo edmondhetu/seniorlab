@@ -1,6 +1,6 @@
 import { utility } from "../../support/Utility"
 	
-	describe('test id 260 - Automate - Learn overview - Explore our content - Making Retirement decision', () => {
+	describe('test id 162 - verify Learn overview - Top section - Learn page', () => {
 	  beforeEach(() => {
 	    cy.visit('/en/learn')
 	  })

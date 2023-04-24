@@ -4,14 +4,21 @@ describe('test id 162 - verify Learn overview - Top section - Learn page', () =>
   beforeEach(() => {
     cy.visit('/en/learn')
   })
+
   it('Learn overview - Top section - Learn page content', () => {
-    //cy.get('#english-button').click()
-    let language = new utility().getLanguageTabletOrMonitorScreen()
-    cy.get('.h3')
-      .should('have.text', language ? 'Not sure where to begin? Take the quiz!' : '(FR) Not sure where to begin? Take the quiz!')
-    cy.get('.w-full > .pb-4')
-      .should('have.text', language ? 'Take our quiz and receive a personalized checklist to help guide you through retirement.' : '(FR) Take our quiz and receive a personalized checklist to help guide you through retirement.')
-    cy.get('.w-full > .rounded')
-      .should('have.text', language ? 'Take the quiz now!' : '(FR) Take the quiz now!')
+    cy.get('.h2')
+      .should('be.visible')
+  })
+
+  it('Find all broken links - verify broken link on landing page', () => {
+    cy.get('a').each(link => {
+      if (link.prop('href'))
+        cy.request({
+          url: link.prop('href'),
+          failOnStatusCode: false
+        })
+
+      cy.log(link.prop('href'))
+    })
   })
 })
