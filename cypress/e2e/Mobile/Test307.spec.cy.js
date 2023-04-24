@@ -1,7 +1,7 @@
 var sizes = ["iphone-3", "iphone-6", "ipad-mini", "macbook-13", "macbook-11", "macbook-16"]
 	import { utility } from "../../support/Utility"
 	
-	describe('test id 217 - Automate - Footer - Mobile App', () => {
+	describe('test id 307 - Automate Top section - Mobile', () => {
 	    context(`${sizes[0]} screen`, () => {
 	        beforeEach(() => {
 	            cy.visit('/en/home')
@@ -60,4 +60,4 @@ var sizes = ["iphone-3", "iphone-6", "ipad-mini", "macbook-13", "macbook-11", "m
 	    })
 	})
 
-
+    
