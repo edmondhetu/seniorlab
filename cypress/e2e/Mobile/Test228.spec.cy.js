@@ -5,19 +5,12 @@ describe('Test id 228 - Top Section - Mobile', () => {
     context(`${sizes[1]} screen`, () => {
         beforeEach(() => {
             cy.visit('/en/home')
-            cy.viewport(sizes[1])
+            cy.viewport(sizes[0])
         })
 
-        it('Find all broken links - verify broken link on landing page', () => {
-            cy.get('a').each(link => {
-                if (link.prop('href'))
-                    cy.request({
-                        url: link.prop('href'),
-                        failOnStatusCode: false
-                    })
-    
-                cy.log(link.prop('href'))
-            })
+        it('Retirement hub title is visible', () => {
+            cy.get('.MuiTypography-root > h2')
+                .should('be.visible')
         })
     })
 })

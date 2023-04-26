@@ -4,21 +4,32 @@ describe('test id 156 - verify Top Learning links - Landing page', () => {
   beforeEach(() => {
     cy.visit('/en/home')
   })
-  
+
   it('Top learning title is visible', () => {
     cy.get('h3').eq(2).should('be.visible')
   })
 
-  it('Find all broken links - verify broken link on landing page', () => {
-    cy.visit('/en/home')
-    cy.get('a').each(link => {
-      if (link.prop('href'))
-        cy.request({
-          url: link.prop('href'),
-          failOnStatusCode: false
-        })
+  it('Main sources of retirement income link click url redirects to /en/fr/ when accessing /en/fr', ()=> {
+    let language = new utility().getLanguageTabletOrMonitorScreen()
+    cy.wait(2000)
+    cy.get('button').eq(0).click()
+    cy.get(':nth-child(1) > .MuiButtonBase-root > .MuiListItemText-root > .MuiTypography-body1').click()
+    cy.location('pathname').should('equal', language ? '/en/test' : '/fr/test')
+  })
 
-      cy.log(link.prop('href'))
-    })
+  it('Planning to save for retirement link click url redirects to /en/fr/ when accessing /en/fr', () => {
+    let language = new utility().getLanguageTabletOrMonitorScreen()
+    cy.wait(2000)
+    cy.get('button').eq(0).click()
+    cy.get(':nth-child(3) > .MuiButtonBase-root > .MuiListItemText-root > .MuiTypography-body1').click()
+    cy.location('pathname').should('equal', language ? '/en/test2' : '/fr/test2')
+  })
+
+  it('When to take your public pensions link click url redirects to /en/fr/ when accessing /en/fr', () => {
+    let language = new utility().getLanguageTabletOrMonitorScreen()
+    cy.wait(2000)
+    cy.get('button').eq(0).click()
+    cy.get(':nth-child(5) > .MuiButtonBase-root > .MuiListItemText-root > .MuiTypography-body1').click()
+    cy.location('pathname').should('equal', language ? '/en/test3' : '/fr/test3')
   })
 })

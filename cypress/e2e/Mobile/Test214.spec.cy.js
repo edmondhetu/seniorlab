@@ -8,16 +8,19 @@ describe('test id 214 - Supporting Seniors - Mobile', () => {
             cy.viewport(sizes[0])
         })
 
-        it('Find all broken links - verify broken link on landing page', () => {
-            cy.get('a').each(link => {
-                if (link.prop('href'))
-                    cy.request({
-                        url: link.prop('href'),
-                        failOnStatusCode: false
-                    })
-    
-                cy.log(link.prop('href'))
-            })
+        it('Supporting Seniors title is visible', () => {
+            cy.get('h2').eq(3).should('be.visible')
+        })
+
+        it('family and friends card is visible', () => {
+            cy.get('h3').eq(1).should('be.visible')
+        })
+
+        it('family and friends card is a link', () => {
+            let language = new utility().getLanguageMobileScreen()
+            cy.wait(2000)
+            cy.get('h3').eq(1).click()
+            cy.location('pathname').should('equal', language ? '/en/home' : '/fr/home')
         })
     })
 })
