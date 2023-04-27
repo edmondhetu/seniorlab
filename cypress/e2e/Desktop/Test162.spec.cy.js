@@ -5,11 +5,6 @@ describe('test id 162 - verify Learn overview - Top section - Learn page', () =>
     cy.visit('/en/learn')
   })
 
-  it('Learn overview - Top section - Learn page content', () => {
-    cy.get('.h2')
-      .should('be.visible')
-  })
-
   it('Find all broken links - verify broken link on landing page', () => {
     cy.get('a').each(link => {
       if (link.prop('href'))
@@ -20,5 +15,16 @@ describe('test id 162 - verify Learn overview - Top section - Learn page', () =>
 
       cy.log(link.prop('href'))
     })
+  })
+
+  it('Learn overview - Top section is visible', () => {
+    cy.get('.my-2')
+      .should('be.visible')
+  })
+
+  it('Learn overview - links to quiz', () => {
+    cy.get('.my-2 > .MuiButtonBase-root').click()
+    cy.get('.h2')
+      .should('be.visible')
   })
 })
