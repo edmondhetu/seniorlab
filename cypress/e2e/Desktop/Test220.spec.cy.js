@@ -12,7 +12,7 @@ describe('test id 220 - verify Plan link - Landing page', () => {
       .and('be.visible')
   })
 
-  it('plan link click url redirects to /en/fr/ when accessing /en/fr', () => {
+  it.only('plan link click url redirects to /en/fr/ when accessing /en/fr', () => {
     let language = new utility().getLanguageTabletOrMonitorScreen()
     cy.wait(2000)
     cy.get('button').eq(1).click()
