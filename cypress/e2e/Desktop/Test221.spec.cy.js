@@ -23,7 +23,7 @@ describe('test id 221 - verify Apply link - Landing page', () => {
     cy.location('pathname').should('equal', language ? '/en/test' : '/fr/test')
   })
 
-  it.only('apply link click \'Old Age Security: How to Apply\' url redirects to /en/fr/ when accessing /en/fr', () => {
+  it('apply link click \'Old Age Security: How to Apply\' url redirects to /en/fr/ when accessing /en/fr', () => {
     let language = new utility().getLanguageTabletOrMonitorScreen()
     cy.wait(2000)
     cy.get('button').eq(2).click()
