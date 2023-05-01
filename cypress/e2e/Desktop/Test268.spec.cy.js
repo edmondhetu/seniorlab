@@ -5,7 +5,7 @@ describe('test id 268 - verify Learn Overview - Breadcrumb', () => {
     }).then({ timeout: 10000 }, waitForAppStart)
     cy.get('.block > :nth-child(1) > .MuiTypography-root').click()
     cy.origin('https://www.canada.ca', () => {
-      cy.wait(2000)
+      cy.wait(3000)
       cy.location('pathname').should('equal', '/en.html')
       cy.get('.well > .mrgn-tp-md').should('have.text', 'The official website of the Government of Canada')
     })
@@ -17,7 +17,7 @@ describe('test id 268 - verify Learn Overview - Breadcrumb', () => {
     }).then({ timeout: 10000 }, waitForAppStart)
     cy.get('.block > :nth-child(1) > .MuiTypography-root').click()
     cy.origin('https://www.canada.ca', () => {
-      cy.wait(2000)
+      cy.wait(3000)
       cy.location('pathname').should('equal', '/fr.html')
       cy.get('.well > .mrgn-tp-md').should('have.text', 'Le site officiel du gouvernement du Canada')
     })
