@@ -1,5 +1,5 @@
 import { utility } from "../../support/Utility"
-var sizes = ["macbook-13", "macbook-11", "macbook-16"]
+var sizes = ["iphone-3", "iphone-6", "ipad-mini"]
 
 describe('test id 319 - Main Sources of retirement income - Learning page', () => {
   beforeEach(() => {
@@ -8,7 +8,7 @@ describe('test id 319 - Main Sources of retirement income - Learning page', () =
     }).then({ timeout: 10000 }, waitForAppStart)
   })
 
-  it(`${sizes[0]} screen left menu items are visible \'Overview of retirement income sources\'`, () => {
+  it(`${sizes[0]} screen left menu items are not visible \'Overview of retirement income sources\'`, () => {
     cy.viewport(sizes[0])
     for (var i = 0; i < 7; i++) {
       cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i)
@@ -16,7 +16,7 @@ describe('test id 319 - Main Sources of retirement income - Learning page', () =
     }
   })
 
-  it(`${sizes[1]} screenleft menu items are visible \'Overview of retirement income sources\'`, () => {
+  it(`${sizes[1]} screenleft menu items are not visible \'Overview of retirement income sources\'`, () => {
     cy.viewport(sizes[1])
     for (var i = 0; i < 7; i++) {
       cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i)
@@ -24,7 +24,7 @@ describe('test id 319 - Main Sources of retirement income - Learning page', () =
     }
   })
 
-  it(`${sizes[2]} screenleft menu items are visible \'Overview of retirement income sources\'`, () => {
+  it(`${sizes[2]} screenleft menu items are not visible \'Overview of retirement income sources\'`, () => {
     cy.viewport(sizes[2])
     for (var i = 0; i < 7; i++) {
       cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i)
@@ -32,31 +32,38 @@ describe('test id 319 - Main Sources of retirement income - Learning page', () =
     }
   })
 
-  it('left menu item 1 \'Overview\'', () => {
+  it(`${sizes[0]} left menu item 1 \'Overview\'`, () => {
+    cy.viewport(sizes[0])
     cy.get('nav > .MuiList-root > :nth-child(1) > .MuiButtonBase-root').click({ force: true })
   })
 
-  it('left menu item 2 \'Canada\'s retirement income system\'', () => {
+  it(`${sizes[0]} left menu item 2 \'Canada\'s retirement income system\'`, () => {
+    cy.viewport(sizes[0])
     cy.get('nav > .MuiList-root > :nth-child(2) > .MuiButtonBase-root').click({ force: true })
   })
 
-  it('left menu item 3 \'Old Age Security (OAS) program\'', () => {
+  it(`${sizes[0]} left menu item 3 \'Old Age Security (OAS) program\'`, () => {
+    cy.viewport(sizes[0])
     cy.get('nav > .MuiList-root > :nth-child(3) > .MuiButtonBase-root').click({ force: true })
   })
 
-  it('left menu item 4 \'Canada Pension Plan (CPP) program\'', () => {
+  it(`${sizes[0]} left menu item 4 \'Canada Pension Plan (CPP) program\'`, () => {
+    cy.viewport(sizes[0])
     cy.get('nav > .MuiList-root > :nth-child(4) > .MuiButtonBase-root').click({ force: true })
   })
 
-  it('left menu item 5 \'Ongoing earnings from your job\'', () => {
+  it(`${sizes[0]} left menu item 5 \'Ongoing earnings from your job\'`, () => {
+    cy.viewport(sizes[0])
     cy.get('nav > .MuiList-root > :nth-child(5) > .MuiButtonBase-root').click({ force: true })
   })
 
-  it('left menu item 6 \'Workplace pension plans\'', () => {
+  it(`${sizes[0]} left menu item 6 \'Workplace pension plans\'`, () => {
+    cy.viewport(sizes[0])
     cy.get('nav > .MuiList-root > :nth-child(6) > .MuiButtonBase-root').click({ force: true })
   })
 
-  it('left menu item 7 \'Personal retirement savings\'', () => {
+  it(`${sizes[0]} left menu item 7 \'Personal retirement savings\'`, () => {
+    cy.viewport(sizes[0])
     cy.get('nav > .MuiList-root > :nth-child(5) > .MuiButtonBase-root').click({ force: true })
   })
 
