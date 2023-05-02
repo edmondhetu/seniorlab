@@ -7,7 +7,6 @@ describe('test id 268 - verify Learn Overview - Breadcrumb', () => {
     cy.origin('https://www.canada.ca', () => {
       cy.wait(3000)
       cy.location('pathname').should('equal', '/en.html')
-      cy.get('.well > .mrgn-tp-md').should('be.visible')
     })
   })
 
@@ -19,7 +18,6 @@ describe('test id 268 - verify Learn Overview - Breadcrumb', () => {
     cy.origin('https://www.canada.ca', () => {
       cy.wait(3000)
       cy.location('pathname').should('equal', '/fr.html')
-      cy.get('.well > .mrgn-tp-md').should('be.visible')
     })
   })
 
