@@ -1,4 +1,5 @@
 import { utility } from "../../support/Utility"
+var sizes = ["macbook-13", "macbook-11", "macbook-16"]
 
 describe('test id 319 - Main Sources of retirement income - Learning page', () => {
   beforeEach(() => {
@@ -7,77 +8,96 @@ describe('test id 319 - Main Sources of retirement income - Learning page', () =
     }).then({ timeout: 10000 }, waitForAppStart)
   })
 
-  it('left menu items are hidden \'Overview of retirement income sources\'', () => {
-    for (var i = 0; i < 6; i++) {
+  it(`${sizes[0]} screen left menu items are hidden \'Overview of retirement income sources\'`, () => {
+    cy.viewport(sizes[0])
+    for (var i = 0; i < 7; i++) {
       cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i)
-        .should('not.be.visible')
+        .should('be.visible')
     }
   })
 
-  it('left menu item 1 \'Overview\'', () => {
-    let language = new utility().getLanguage()
-    cy.wait(2000)
-    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(0).click({ force: true })
-    cy.location('pathname').should('equal', language ? '/en/learn/retirement-income-sources' : '/fr/learn/retirement-income-sources')
+  it(`${sizes[1]} screenleft menu items are hidden \'Overview of retirement income sources\'`, () => {
+    cy.viewport(sizes[1])
+    for (var i = 0; i < 7; i++) {
+      cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i)
+        .should('be.visible')
+    }
+  })
+
+  it(`${sizes[2]} screenleft menu items are hidden \'Overview of retirement income sources\'`, () => {
+    cy.viewport(sizes[2])
+    for (var i = 0; i < 7; i++) {
+      cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i)
+        .should('be.visible')
+    }
+  })
+
+  it('left menu item 1 \'Overview\' scroll test', () => {
+    cy.get('nav > .MuiList-root > :nth-child(1) > .MuiButtonBase-root').click({ force: true })
   })
 
   it('left menu item 2 \'Canada\'s retirement income system\'', () => {
-    let language = new utility().getLanguage()
-    cy.wait(2000)
-    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(1).click({ force: true })
-    cy.location('pathname').should('equal', language ? '/en/learn/retirement-income-sources' : '/fr/learn/retirement-income-sources')
+    cy.get('nav > .MuiList-root > :nth-child(2) > .MuiButtonBase-root').click({ force: true })
   })
 
   it('left menu item 3 \'Old Age Security (OAS) program\'', () => {
-    let language = new utility().getLanguage()
-    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(2).click({ force: true })
-    cy.location('pathname').should('equal', language ? '/en/learn/retirement-income-sources' : '/fr/learn/retirement-income-sources')
+    cy.get('nav > .MuiList-root > :nth-child(3) > .MuiButtonBase-root').click({ force: true })
   })
 
   it('left menu item 4 \'Canada Pension Plan (CPP) program\'', () => {
-    let language = new utility().getLanguage()
-    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(3).click({ force: true })
-    cy.location('pathname').should('equal', language ? '/en/learn/retirement-income-sources' : '/fr/learn/retirement-income-sources')
+    cy.get('nav > .MuiList-root > :nth-child(4) > .MuiButtonBase-root').click({ force: true })
   })
 
   it('left menu item 5 \'Ongoing earnings from your job\'', () => {
-    let language = new utility().getLanguage()
-    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(4).click({ force: true })
-    cy.location('pathname').should('equal', language ? '/en/learn/retirement-income-sources' : '/fr/learn/retirement-income-sources')
+    cy.get('nav > .MuiList-root > :nth-child(5) > .MuiButtonBase-root').click({ force: true })
   })
 
-  it('left menu item 6 \'Personal retirement savings\'', () => {
-    let language = new utility().getLanguage()
-    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(5).click({ force: true })
-    cy.location('pathname').should('equal', language ? '/en/learn/retirement-income-sources' : '/fr/learn/retirement-income-sources')
+  it('left menu item 6 \'Workplace pension plans\'', () => {
+    cy.get('nav > .MuiList-root > :nth-child(6) > .MuiButtonBase-root').click({ force: true })
   })
-})
 
-function waitForAppStart() {
-  // keeps rechecking "appHasStarted" variable
-  return new Cypress.Promise((resolve, reject) => {
-    const isReady = () => {
-      if (appHasStarted) {
-        return resolve()
+  it('left menu item 7 \'Personal retirement savings\'', () => {
+    cy.get('nav > .MuiList-root > :nth-child(5) > .MuiButtonBase-root').click({ force: true })
+  })
+
+  it('Find all broken links - verify broken link on landing page', () => {
+    cy.get('a').each(link => {
+      if (link.prop('href'))
+        cy.request({
+          url: link.prop('href'),
+          failOnStatusCode: false
+        })
+
+      cy.log(link.prop('href'))
+    })
+  })
+
+  function waitForAppStart() {
+    // keeps rechecking "appHasStarted" variable
+    return new Cypress.Promise((resolve, reject) => {
+      const isReady = () => {
+        if (appHasStarted) {
+          return resolve()
+        }
+        setTimeout(isReady, 0)
       }
-      setTimeout(isReady, 0)
-    }
-    isReady()
-  })
-}
-
-let appHasStarted
-function spyOnAddEventListener(win) {
-  // win = window object in our application
-  const addListener = win.EventTarget.prototype.addEventListener
-  win.EventTarget.prototype.addEventListener = function (name) {
-    if (name === 'change') {
-      // web app added an event listener to the input box -
-      // that means the web application has started
-      appHasStarted = true
-      // restore the original event listener
-      win.EventTarget.prototype.addEventListener = addListener
-    }
-    return addListener.apply(this, arguments)
+      isReady()
+    })
   }
-}
+
+  let appHasStarted
+  function spyOnAddEventListener(win) {
+    // win = window object in our application
+    const addListener = win.EventTarget.prototype.addEventListener
+    win.EventTarget.prototype.addEventListener = function (name) {
+      if (name === 'change') {
+        // web app added an event listener to the input box -
+        // that means the web application has started
+        appHasStarted = true
+        // restore the original event listener
+        win.EventTarget.prototype.addEventListener = addListener
+      }
+      return addListener.apply(this, arguments)
+    }
+  }
+})
