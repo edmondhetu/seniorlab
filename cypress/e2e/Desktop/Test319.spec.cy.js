@@ -73,7 +73,7 @@ describe('test id 319 - Main Sources of retirement income - Learning page', () =
   })
 
   describe('verify \'this OAS Pension page\' link', () => {
-    it.only('\'this OAS Pension page\' link - click url redirects to /en when accessing /en', () => {
+    it('\'this OAS Pension page\' link - click url redirects to /en when accessing /en', () => {
       cy.visit('/en/learn/retirement-income-sources#overview', {
         onBeforeLoad: spyOnAddEventListener
       }).then({ timeout: 10000 }, waitForAppStart)
