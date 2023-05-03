@@ -78,21 +78,21 @@ describe('test id 319 - Main Sources of retirement income - Learning page', () =
   it(`${sizes[0]} left menu items are clickable`, () => {
     cy.viewport(sizes[0])
     for (var i = 0; i < 7; i++) {
-    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i).click({ force: true })
+    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i).click()
     }
   })
 
   it(`${sizes[1]} left menu items are clickable`, () => {
     cy.viewport(sizes[1])
     for (var i = 0; i < 7; i++) {
-    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i).click({ force: true })
+    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i).click()
     }
   })
 
   it(`${sizes[2]} left menu items are clickable`, () => {
     cy.viewport(sizes[2])
     for (var i = 0; i < 7; i++) {
-    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i).click({ force: true })
+    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i).click()
     }
   })
 
