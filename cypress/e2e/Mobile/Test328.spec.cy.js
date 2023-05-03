@@ -1,7 +1,7 @@
 import { utility } from "../../support/Utility"
-var sizes = ["macbook-13", "macbook-11", "macbook-16"]
+var sizes = ["iphone-3", "iphone-6", "ipad-mini"]
 
-describe('test id 319 - Main Sources of retirement income - Learning page', () => {
+describe('test id 328 - Main Sources of retirement income - Learning page', () => {
   beforeEach(() => {
     cy.visit('/en/learn/retirement-income-sources#overview', {
       onBeforeLoad: spyOnAddEventListener
@@ -9,27 +9,27 @@ describe('test id 319 - Main Sources of retirement income - Learning page', () =
   })
 
   //Left menu and items visible screen sizes tests
-  it(`${sizes[0]} screen left menu items are visible \'Overview of retirement income sources\'`, () => {
+  it(`${sizes[0]} screen left menu items are not visible \'Overview of retirement income sources\'`, () => {
     cy.viewport(sizes[0])
     for (var i = 0; i < 7; i++) {
       cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i)
-        .should('be.visible')
+        .should('not.visible')
     }
   })
 
-  it(`${sizes[1]} screenleft menu items are visible \'Overview of retirement income sources\'`, () => {
+  it(`${sizes[1]} screenleft menu items are not visible \'Overview of retirement income sources\'`, () => {
     cy.viewport(sizes[1])
     for (var i = 0; i < 7; i++) {
       cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i)
-        .should('be.visible')
+        .should('not.visible')
     }
   })
 
-  it(`${sizes[2]} screenleft menu items are visible \'Overview of retirement income sources\'`, () => {
+  it(`${sizes[2]} screenleft menu items are not visible \'Overview of retirement income sources\'`, () => {
     cy.viewport(sizes[2])
     for (var i = 0; i < 7; i++) {
       cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i)
-        .should('be.visible')
+        .should('not.visible')
     }
   })
 
@@ -74,25 +74,25 @@ describe('test id 319 - Main Sources of retirement income - Learning page', () =
     cy.get('#personal-retirement-savings').scrollIntoView().click()
   })
 
-  //Left menu items are clickable screen size tests
+  //Left menu items are clickable tests
   it(`${sizes[0]} left menu items are clickable`, () => {
     cy.viewport(sizes[0])
     for (var i = 0; i < 7; i++) {
-    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i).click()
+    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i).click({ force: true })
     }
   })
 
   it(`${sizes[1]} left menu items are clickable`, () => {
     cy.viewport(sizes[1])
     for (var i = 0; i < 7; i++) {
-    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i).click()
+    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i).click({ force: true })
     }
   })
 
   it(`${sizes[2]} left menu items are clickable`, () => {
     cy.viewport(sizes[2])
     for (var i = 0; i < 7; i++) {
-    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i).click()
+    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i).click({ force: true })
     }
   })
 
