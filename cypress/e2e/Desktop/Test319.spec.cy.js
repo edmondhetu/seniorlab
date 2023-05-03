@@ -74,33 +74,26 @@ describe('test id 319 - Main Sources of retirement income - Learning page', () =
     cy.get('#personal-retirement-savings').scrollIntoView().click()
   })
 
-  //Left menu items are clickable tests
-  it('left menu item 1 \'Overview\'', () => {
-    cy.get('nav > .MuiList-root > :nth-child(1) > .MuiButtonBase-root').click({ force: true })
+  //Left menu items are clickable screen size tests
+  it(`${sizes[0]} left menu items are clickable`, () => {
+    cy.viewport(sizes[0])
+    for (var i = 0; i < 7; i++) {
+    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i).click({ force: true })
+    }
   })
 
-  it('left menu item 2 \'Canada\'s retirement income system\'', () => {
-    cy.get('nav > .MuiList-root > :nth-child(2) > .MuiButtonBase-root').click({ force: true })
+  it(`${sizes[1]} left menu items are clickable`, () => {
+    cy.viewport(sizes[1])
+    for (var i = 0; i < 7; i++) {
+    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i).click({ force: true })
+    }
   })
 
-  it('left menu item 3 \'Old Age Security (OAS) program\'', () => {
-    cy.get('nav > .MuiList-root > :nth-child(3) > .MuiButtonBase-root').click({ force: true })
-  })
-
-  it('left menu item 4 \'Canada Pension Plan (CPP) program\'', () => {
-    cy.get('nav > .MuiList-root > :nth-child(4) > .MuiButtonBase-root').click({ force: true })
-  })
-
-  it('left menu item 5 \'Ongoing earnings from your job\'', () => {
-    cy.get('nav > .MuiList-root > :nth-child(5) > .MuiButtonBase-root').click({ force: true })
-  })
-
-  it('left menu item 6 \'Workplace pension plans\'', () => {
-    cy.get('nav > .MuiList-root > :nth-child(6) > .MuiButtonBase-root').click({ force: true })
-  })
-
-  it('left menu item 7 \'Personal retirement savings\'', () => {
-    cy.get('nav > .MuiList-root > :nth-child(5) > .MuiButtonBase-root').click({ force: true })
+  it(`${sizes[2]} left menu items are clickable`, () => {
+    cy.viewport(sizes[2])
+    for (var i = 0; i < 7; i++) {
+    cy.get('li.MuiListItem-root.MuiListItem-gutters.mui-style-pjl2lh').eq(i).click({ force: true })
+    }
   })
 
   it('Find all broken links - verify broken link on landing page', () => {
