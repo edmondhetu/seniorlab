@@ -8,6 +8,7 @@ describe('test id 319 - Main Sources of retirement income - Learning page', () =
     }).then({ timeout: 10000 }, waitForAppStart)
   })
 
+  //Left menu and items visible screen sizes tests
   it(`${sizes[0]} screen left menu items are visible \'Overview of retirement income sources\'`, () => {
     cy.viewport(sizes[0])
     for (var i = 0; i < 7; i++) {
@@ -32,6 +33,48 @@ describe('test id 319 - Main Sources of retirement income - Learning page', () =
     }
   })
 
+  //Scroll screen sizes tests
+  it(`${sizes[0]} title 1 \'Overview\' scroll into view linear`, () => {
+    cy.viewport(sizes[0])
+    cy.get('.mb-10')
+      .scrollIntoView({
+        easing: 'linear',
+        duration: 1000,
+      })
+      .click()
+  })
+
+  it(`${sizes[0]} title 2 \'Canada\'s retirement income system\' scroll into view`, () => {
+    cy.viewport(sizes[0])
+    cy.get('#canada-retirement-income-system').scrollIntoView().click()
+  })
+
+  it(`${sizes[0]} title 3 \'Old Age Security (OAS) program\' scroll into view`, () => {
+    cy.viewport(sizes[0])
+    cy.get('#old-age-security-program').scrollIntoView().click()
+  })
+
+  it(`${sizes[0]} title 4 \'Canada Pension Plan (CPP) program\' scroll into view`, () => {
+    cy.viewport(sizes[0])
+    cy.get('#canada-pension-plan-program').scrollIntoView().click()
+  })
+
+  it(`${sizes[0]} title 5 \'Ongoing earnings from your job\' scroll into view`, () => {
+    cy.viewport(sizes[0])
+    cy.get('#ongoing-earnings-from-your-job').scrollIntoView().click()
+  })
+
+  it(`${sizes[0]} title 6 \'Workplace pension plans\' scroll into view`, () => {
+    cy.viewport(sizes[0])
+    cy.get('#workplace-pension-plans').scrollIntoView().click()
+  })
+
+  it(`${sizes[0]} title 7 \'Personal retirement savings\' scroll into view`, () => {
+    cy.viewport(sizes[0])
+    cy.get('#personal-retirement-savings').scrollIntoView().click()
+  })
+
+  //Left menu items are clickable tests
   it('left menu item 1 \'Overview\'', () => {
     cy.get('nav > .MuiList-root > :nth-child(1) > .MuiButtonBase-root').click({ force: true })
   })

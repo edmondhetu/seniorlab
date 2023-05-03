@@ -1,13 +1,14 @@
 import { utility } from "../../support/Utility"
 var sizes = ["iphone-3", "iphone-6", "ipad-mini"]
 
-describe('test id 319 - Main Sources of retirement income - Learning page', () => {
+describe('test id 328 - Main Sources of retirement income - Learning page', () => {
   beforeEach(() => {
     cy.visit('/en/learn/retirement-income-sources#overview', {
       onBeforeLoad: spyOnAddEventListener
     }).then({ timeout: 10000 }, waitForAppStart)
   })
 
+  //Left menu and items visible screen sizes tests
   it(`${sizes[0]} screen left menu items are not visible \'Overview of retirement income sources\'`, () => {
     cy.viewport(sizes[0])
     for (var i = 0; i < 7; i++) {
@@ -32,38 +33,73 @@ describe('test id 319 - Main Sources of retirement income - Learning page', () =
     }
   })
 
-  it(`${sizes[0]} left menu item 1 \'Overview\'`, () => {
+  //Scroll screen sizes tests
+  it(`${sizes[0]} title 1 \'Overview\' scroll into view linear`, () => {
     cy.viewport(sizes[0])
+    cy.get('.mb-10')
+      .scrollIntoView({
+        easing: 'linear',
+        duration: 1000,
+      })
+      .click()
+  })
+
+  it(`${sizes[0]} title 2 \'Canada\'s retirement income system\' scroll into view`, () => {
+    cy.viewport(sizes[0])
+    cy.get('#canada-retirement-income-system').scrollIntoView().click()
+  })
+
+  it(`${sizes[0]} title 3 \'Old Age Security (OAS) program\' scroll into view`, () => {
+    cy.viewport(sizes[0])
+    cy.get('#old-age-security-program').scrollIntoView().click()
+  })
+
+  it(`${sizes[0]} title 4 \'Canada Pension Plan (CPP) program\' scroll into view`, () => {
+    cy.viewport(sizes[0])
+    cy.get('#canada-pension-plan-program').scrollIntoView().click()
+  })
+
+  it(`${sizes[0]} title 5 \'Ongoing earnings from your job\' scroll into view`, () => {
+    cy.viewport(sizes[0])
+    cy.get('#ongoing-earnings-from-your-job').scrollIntoView().click()
+  })
+
+  it(`${sizes[0]} title 6 \'Workplace pension plans\' scroll into view`, () => {
+    cy.viewport(sizes[0])
+    cy.get('#workplace-pension-plans').scrollIntoView().click()
+  })
+
+  it(`${sizes[0]} title 7 \'Personal retirement savings\' scroll into view`, () => {
+    cy.viewport(sizes[0])
+    cy.get('#personal-retirement-savings').scrollIntoView().click()
+  })
+
+  //Left menu items are clickable tests
+  it('left menu item 1 \'Overview\'', () => {
     cy.get('nav > .MuiList-root > :nth-child(1) > .MuiButtonBase-root').click({ force: true })
   })
 
-  it(`${sizes[0]} left menu item 2 \'Canada\'s retirement income system\'`, () => {
-    cy.viewport(sizes[0])
+  it('left menu item 2 \'Canada\'s retirement income system\'', () => {
     cy.get('nav > .MuiList-root > :nth-child(2) > .MuiButtonBase-root').click({ force: true })
   })
 
-  it(`${sizes[0]} left menu item 3 \'Old Age Security (OAS) program\'`, () => {
-    cy.viewport(sizes[0])
+  it('left menu item 3 \'Old Age Security (OAS) program\'', () => {
     cy.get('nav > .MuiList-root > :nth-child(3) > .MuiButtonBase-root').click({ force: true })
   })
 
-  it(`${sizes[0]} left menu item 4 \'Canada Pension Plan (CPP) program\'`, () => {
-    cy.viewport(sizes[0])
+  it('left menu item 4 \'Canada Pension Plan (CPP) program\'', () => {
     cy.get('nav > .MuiList-root > :nth-child(4) > .MuiButtonBase-root').click({ force: true })
   })
 
-  it(`${sizes[0]} left menu item 5 \'Ongoing earnings from your job\'`, () => {
-    cy.viewport(sizes[0])
+  it('left menu item 5 \'Ongoing earnings from your job\'', () => {
     cy.get('nav > .MuiList-root > :nth-child(5) > .MuiButtonBase-root').click({ force: true })
   })
 
-  it(`${sizes[0]} left menu item 6 \'Workplace pension plans\'`, () => {
-    cy.viewport(sizes[0])
+  it('left menu item 6 \'Workplace pension plans\'', () => {
     cy.get('nav > .MuiList-root > :nth-child(6) > .MuiButtonBase-root').click({ force: true })
   })
 
-  it(`${sizes[0]} left menu item 7 \'Personal retirement savings\'`, () => {
-    cy.viewport(sizes[0])
+  it('left menu item 7 \'Personal retirement savings\'', () => {
     cy.get('nav > .MuiList-root > :nth-child(5) > .MuiButtonBase-root').click({ force: true })
   })
 
