@@ -26,10 +26,11 @@ describe('test id 133 - verify Button/Links - Landing page top section', () => {
   it('checklist button - verify is visible, clickable, html attributes and url pathname', () => {
     let language = new utility().getLanguageTabletOrMonitorScreen()
 
-    cy.get('.p-4 > .mb-6 > .MuiButtonBase-root').should('have.attr', 'href', language ? '/en/home#' : '/fr/home#')
+    cy.get('.flex > .MuiButtonBase-root').should('have.attr', 'href', language ? '/en/learn' : '/fr/learn')
       .and('be.visible')
     cy.location('pathname').should('equal', language ? '/en/home' : '/fr/home')
-    cy.get('.p-4 > .mb-6 > .MuiButtonBase-root').click()
+    cy.get('.flex > .MuiButtonBase-root').click()
+    cy.location('pathname').should('equal', language ? '/en/learn' : '/fr/learn')
   })
 
   it('find all broken links - verify broken link on landing page', () => {
