@@ -1,5 +1,3 @@
-
-
 describe('test id 156 - verify Top Learning links - Landing page', () => {
   const langs = ['en', 'fr']
   const sizes = ['macbook-13', 'macbook-11', 'macbook-16']
