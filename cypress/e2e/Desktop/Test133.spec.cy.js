@@ -13,10 +13,10 @@ describe('test id 133 - verify Button/Links - Landing page top section', () => {
           .and('have.attr', 'href', `${lang}/home`)
           .and('be.visible')
         if (lang == 'fr') {
-          cy.location('pathname').should('equal', 'en/home')
+          cy.location('pathname').should('equal', '/en/home')
         }
         else {
-          cy.location('pathname').should('equal', 'fr/home')
+          cy.location('pathname').should('equal', '/fr/home')
         }
       })
     })
