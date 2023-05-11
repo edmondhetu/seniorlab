@@ -1,0 +1,26 @@
+[
+    {
+        "testcase": "scenario 1 age pre-60",
+        "age": "[value=\"pre-60\"]"
+    },
+    {
+        "testcase": "scenario 2 age 60-65",
+        "age": "[value=\"pre-60\"]"
+    },
+    {
+        "testcase": "scenario 3 age 65",
+        "age": "[value=\"pre-60\"]"
+    },
+    {
+        "testcase": "scenario 4 age 65-70",
+        "age": "[value=\"pre-60\"]"
+    },
+    {
+        "testcase": "scenario 5 age 70",
+        "age": "[value=\"pre-60\"]"
+    },
+    {
+        "testcase": "scenario 6 age 70-75",
+        "age": "[value=\"pre-60\"]"
+    }
+]
