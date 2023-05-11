@@ -1,5 +1,5 @@
 describe('test quiz age pre-60', () => {
-    const age = ["'[value=\"pre-60\"]'"]
+    const age = ["[value=\"pre-60\"]"]
     age.forEach(age => {
         it('test', () => {
             cy.visit('/en/learn')
