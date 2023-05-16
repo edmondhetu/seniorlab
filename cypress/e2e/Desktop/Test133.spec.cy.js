@@ -19,15 +19,15 @@ describe('test id 133 - verify Button/Links - Landing page top section', () => {
           cy.location('pathname').should('equal', '/fr/home')
         }
       })
-    })
 
-    it.only(`[${lang}] - ${size} - checklist button - verify is visible, clickable, html attributes and url pathname`, () => {
-      cy.visit(`/${lang}/home`)
-      cy.viewport(size)
-      cy.get('.flex > .mb-6 > .MuiButtonBase-root').click()
-        .should('have.attr', 'href', `/${lang}/learn`)
-        .and('be.visible')
-      cy.location('pathname').should('equal', `/${lang}/learn`)
+      it.only(`[${lang}] - ${size} - checklist button - verify is visible, clickable, html attributes and url pathname`, () => {
+        cy.visit(`/${lang}/home`)
+        cy.viewport(size)
+        cy.get('.flex > .mb-6 > .MuiButtonBase-root').click()
+          .should('have.attr', 'href', `/${lang}/learn`)
+          .and('be.visible')
+        cy.location('pathname').should('equal', `/${lang}/learn`)
+      })
     })
   })
 })
