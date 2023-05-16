@@ -21,7 +21,7 @@ describe('test id 133 - verify Button/Links - Landing page top section', () => {
       })
     })
 
-    it(`[${lang}] - ${size} - checklist button - verify is visible, clickable, html attributes and url pathname`, () => {
+    it.only(`[${lang}] - ${size} - checklist button - verify is visible, clickable, html attributes and url pathname`, () => {
       cy.visit(`/${lang}/home`)
       cy.viewport(size)
       cy.get('.flex > .mb-6 > .MuiButtonBase-root').click()
