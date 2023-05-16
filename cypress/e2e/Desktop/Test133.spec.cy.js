@@ -30,7 +30,7 @@ describe('test id 133 - verify Button/Links - Landing page top section', () => {
       })
 
       it.only(`[${lang}] - ${size} - take the quiz - verify is visible, clickable, html attributes and url pathname`, () => {
-        cy.visit(`/${lang}/home`)
+        cy.visit(`/${lang}/learn`)
         cy.viewport(size)
         cy.get('#quiz-dialog-trigger').click()
         cy.get('h2')
