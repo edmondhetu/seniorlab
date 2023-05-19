@@ -4,7 +4,7 @@ describe('test id 133 - verify Button/Links - Landing page top section', () => {
 
   sizes.forEach(size => {
     langs.forEach(lang => {
-      it(`[${lang}] - ${size} -language link - verify is visible, clickable, html attributes and url pathname.`, () => {
+      it.only(`[${lang}] - ${size} -language link - verify is visible, clickable, html attributes and url pathname.`, () => {
         cy.log('https://dev.azure.com/JourneyLab/SeniorsJourney/_workitems/edit/133')
         cy.visit(`/${lang}/home`)
         cy.viewport(size)
