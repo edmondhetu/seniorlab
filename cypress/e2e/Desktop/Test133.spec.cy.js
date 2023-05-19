@@ -4,7 +4,7 @@ describe('test id 133 - verify Button/Links - Landing page top section', () => {
 
   sizes.forEach(size => {
     langs.forEach(lang => {
-      it(`[${lang}] - ${size} -language link - verify is visible, clickable, html attributes and url pathname.`, () => {
+      it.only(`[${lang}] - ${size} -language link - verify is visible, clickable, html attributes and url pathname.`, () => {
         cy.log('https://dev.azure.com/JourneyLab/SeniorsJourney/_workitems/edit/133')
         cy.visit(`/${lang}/home`)
         cy.viewport(size)
@@ -29,7 +29,7 @@ describe('test id 133 - verify Button/Links - Landing page top section', () => {
         cy.location('pathname').should('equal', `/${lang}/learn`)
       })
 
-      it.only(`[${lang}] - ${size} - take the quiz - verify is visible, clickable, html attributes and url pathname`, () => {
+      it(`[${lang}] - ${size} - take the quiz - verify is visible, clickable, html attributes and url pathname`, () => {
         cy.visit(`/${lang}/learn`)
         cy.viewport(size)
         cy.get('#quiz-dialog-trigger').click()
